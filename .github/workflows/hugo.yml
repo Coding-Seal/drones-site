@@ -1,8 +1,9 @@
-name: Deploy Hugo with PaperMod to GitHub Pages
+name: Deploy Hugo site to Pages
 
 on:
   push:
-    branches: [ master ]
+    branches:
+      - master  # Или ваша основная ветка
   pull_request:
 
 jobs:
@@ -18,16 +19,11 @@ jobs:
       cancel-in-progress: true
 
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
         with:
-          submodules: recursive  # Критически важно для PaperMod
-          fetch-depth: 0
-
-      - name: Initialize submodules
-        run: |
-          git submodule sync
-          git submodule update --init --recursive
+          submodules: recursive  # Важно для тем Hugo
+          fetch-depth: 1
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
@@ -35,10 +31,8 @@ jobs:
           hugo-version: '0.147.3'  # Укажите актуальную версию
           extended: true
 
-      - name: Build with Hugo
-        run: |
-          hugo --minify --gc --verbose
-          echo "Build complete"
+      - name: Build
+        run: hugo --minify --gc
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -46,5 +40,5 @@ jobs:
           path: ./public
 
       - name: Deploy to GitHub Pages
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/master'  # Только для основной ветки
         uses: actions/deploy-pages@v4
