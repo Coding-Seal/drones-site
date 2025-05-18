@@ -2,7 +2,7 @@ name: Deploy Hugo with PaperMod to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   pull_request:
 
 jobs:
@@ -46,5 +46,5 @@ jobs:
           path: ./public
 
       - name: Deploy to GitHub Pages
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/master'
         uses: actions/deploy-pages@v4
