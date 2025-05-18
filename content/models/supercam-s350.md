@@ -5,7 +5,7 @@ draft: false
 weight: 1
 ---
 
-![Supercam S350](/models/images/s350.png)
+![Supercam S350](/drones-site/models/images/s350.png)
 
 # Характеристики
 

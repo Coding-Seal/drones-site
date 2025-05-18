@@ -5,7 +5,7 @@ draft: false
 weight: 1
 ---
 
-![Supercam X4E](/models/images/x4e.png)
+![Supercam X4E](/drones-site/models/images/x4e.png)
 
 # Характеристики
 
