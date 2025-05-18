@@ -1,0 +1,28 @@
+baseURL = "https://yourdomain.com/"
+title = "БПЛА"
+theme = "PaperMod"
+
+[params]
+  defaultTheme = "auto"
+  description = "История развития и современные модели дронов"
+  keywords = ["дроны", "беспилотники", "история авиации", "квадрокоптеры"]
+
+[menu]
+  [[menu.main]]
+    identifier = "history"
+    name = "История"
+    url = "/history/"
+    weight = 1
+  [[menu.main]]
+    identifier = "regulations"
+    name = "Правила полетов"
+    url = "/regulations/"
+    weight = 3
+  [[menu.main]]
+    identifier = "models"
+    name = "Модели"
+    url = "/models/"
+    weight = 2
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
